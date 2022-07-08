@@ -10,7 +10,7 @@ RUN git checkout v6.0.1
 RUN make install
 
 RUN evmosd init HanchonEndpoints --chain-id evmos_9001-2
-# RUN rm $HOME/.evmosd/config/genesis.json
+RUN rm $HOME/.evmosd/config/genesis.json
 
 RUN sed -i -e "s%^moniker *=.*%moniker = \"HanchonEndpoints\"%; " $HOME/.evmosd/config/config.toml
 RUN sed -i -e "s%^indexer *=.*%indexer = \"null\"%; " $HOME/.evmosd/config/config.toml
