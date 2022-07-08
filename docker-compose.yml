@@ -1,0 +1,12 @@
+version: "3.4"
+
+services:
+  node:
+    image: elhachon/evmos-on-akash:v6.0.1-r2
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "1317:1317"
+      - "8545:8458"
+    volumes:
+      - ./node-data:/root/.evmosd/data
