@@ -36,7 +36,7 @@ EXPOSE 26656 \
        26657 \
        1317  \
        9090  \
-       8584  \
+       8545  \
        8080
 
 RUN mv $HOME/.evmosd/data/priv_validator_state.json $HOME/.evmosd/config/
