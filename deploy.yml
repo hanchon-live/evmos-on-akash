@@ -26,16 +26,16 @@ profiles:
         cpu:
           units: 8
         memory:
-          size: 32Gi
+          size: 64Gi
         storage:
-          size: 100Gi
+          size: 500Gi
   placement:
     dcloud:
       attributes:
         host: akash
       signedBy:
         anyOf:
-          - akash1vyzffk85g5l6wznt9sfg3erf9nhar7pusuut60
+          - akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63
       pricing:
         node:
           denom: uakt

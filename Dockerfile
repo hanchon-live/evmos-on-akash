@@ -13,16 +13,16 @@ RUN evmosd init HanchonEndpoints --chain-id evmos_9001-2
 RUN rm $HOME/.evmosd/config/genesis.json
 
 RUN sed -i -e "s%^moniker *=.*%moniker = \"HanchonEndpoints\"%; " $HOME/.evmosd/config/config.toml
-RUN sed -i -e "s%^indexer *=.*%indexer = \"null\"%; " $HOME/.evmosd/config/config.toml
-RUN sed -i -e "s%^persistent_peers *=.*%persistent_peers = \"e3e11fca4ecf4035a751f3fea90e3a821e274487@bd-evmos-mainnet-seed-node-01.bdnodes.net:26656,fc86e7e75c5d2e4699535e1b1bec98ae55b16826@bd-evmos-mainnet-seed-node-02.bdnodes.net:26656\"%; " $HOME/.evmosd/config/config.toml
+# RUN sed -i -e "s%^indexer *=.*%indexer = \"null\"%; " $HOME/.evmosd/config/config.toml
+RUN sed -i -e "s%^persistent_peers *=.*%persistent_peers = \"de5dabf3da0efc1a0c0ea9791f111d0b5d0a2aa9@65.108.138.80:34656\"%; " $HOME/.evmosd/config/config.toml
 
 RUN sed -i -e "s%^pruning-keep-recent *=.*%pruning-keep-recent = \"100\"%; " $HOME/.evmosd/config/app.toml
 RUN sed -i -e "s%^pruning-keep-every *=.*%pruning-keep-every = \"0\"%; " $HOME/.evmosd/config/app.toml
 RUN sed -i -e "s%^pruning-interval *=.*%pruning-interval = \"10\"%; " $HOME/.evmosd/config/app.toml
 RUN sed -i -e "s%^snapshot-interval *=.*%snapshot-interval = 0%; " $HOME/.evmosd/config/app.toml
 
-RUN SNAP_RPC1="http://bd-evmos-mainnet-state-sync-us-01.bdnodes.net:26657"; \
-SNAP_RPC="http://bd-evmos-mainnet-state-sync-us-01.bdnodes.net:26657"; \
+RUN SNAP_RPC1="https://evmos-rpc.polkachu.com:443"; \
+SNAP_RPC="https://evmos-rpc.polkachu.com:443"; \
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash); \
