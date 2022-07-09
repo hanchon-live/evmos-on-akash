@@ -41,7 +41,7 @@ EXPOSE 26656 \
 
 RUN mv $HOME/.evmosd/data/priv_validator_state.json $HOME/.evmosd/config/
 
-CMD ulimit -n 4096 && \
+CMD ulimit -n 16392 && \
 cd $HOME/.evmosd/config/ && \
 mv -n $HOME/.evmosd/config/priv_validator_state.json ../data/priv_validator_state.json && \
 wget -nc https://archive.evmos.org/mainnet/genesis.json && \
